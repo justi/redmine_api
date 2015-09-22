@@ -20,7 +20,7 @@ module RedmineApi
 		  end
 		  limit = options[:limit].to_i
 		  if limit < 1
-		    limit = 1000
+		    limit = 100000
 		  end
 		  if offset.nil? && options[:page].present?
 		    offset = (options[:page].to_i - 1) * limit
