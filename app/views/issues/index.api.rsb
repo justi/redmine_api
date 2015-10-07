@@ -4,6 +4,8 @@ api.array :issues, api_meta(:total_count => @issue_count, :offset => @offset, :l
       api.url url_for(controller: 'issues', action:'show', id: issue,  only_path: false)
       api.assigned_email issue.assigned_to.mail unless issue.assigned_to.nil?
       api.subject issue.subject
+      api.project(:id => issue.project_id, :name => issue.project.name) unless issue.project.nil?
     end
   end
 end
+
